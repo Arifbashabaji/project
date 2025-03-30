@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANPR System - Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/home.css" />
+    <!-- <link rel="stylesheet" href="./css/common.css"> -->
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <i class="fas fa-car-alt"></i>
+            <span>ANPR System</span>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <a href="index.html" class="menu-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="pages/dashboard.html" class="menu-item">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-car"></i>
+            <span>Vehicle Registry</span>
+          </a>
+          <a href="pages/register_vehicle.html" class="menu-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>Register Vehicle</span>
+          </a>
+          <a href="pages/alerts.html" class="menu-item">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Alerts</span>
+          </a>
+          <!-- <a href="#" class="menu-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Analytics</span>
+          </a> -->
+          <!-- <a href="#" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a> -->
+          <!-- <a href="#" class="menu-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <div class="page-title">Home</div>
+          <div class="user-profile">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+              <div class="user-name">User - x</div>
+              <div class="user-role">ANPR System</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Welcome Banner -->
+        <div class="w-banner">
+          <div class="w-circle-top"></div>
+          <div class="w-circle-bottom"></div>
+          <div class="w-inner">
+            <div class="w-content">
+              <div class="w-title">Welcome to the ANPR System</div>
+              <div class="w-subtitle">
+                Monitor and manage vehicle access with automated license plate
+                recognition. View analytics, set alerts, and control access
+                permissions.
+              </div>
+              <div class="w-actions">
+                <div class="w-btn btn-primary">
+                  <i class="fas fa-tachometer-alt"></i>
+                  <span
+                    ><a
+                      href="pages/dashboard.html"
+                      style="
+                        text-decoration: none;
+                        color: white;
+                        font-weight: 300;
+                        width: fit-content;
+                      "
+                    >
+                      Dashboard</a
+                    ></span
+                  >
+                </div>
+                <!-- <div class="w-btn btn-outline">
+                  <i class="fas fa-play-circle"></i>
+                  <span>Watch Tutorial</span>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="fs-section">
+          <div class="f-card">
+            <div
+              class="f-circle"
+              style="background: linear-gradient(135deg, #4361ee, #3f37c9)"
+            ></div>
+            <div class="f-inner">
+              <div class="f-icon icon-recognition">
+                <i class="fas fa-camera"></i>
+              </div>
+              <div class="f-title">License Plate Recognition</div>
+              <div class="f-description">
+                Advanced AI algorithms to accurately detect and recognize
+                license plates in real-time, even in challenging conditions.
+              </div>
+              <a href="#" class="f-link">
+                <span>Learn more</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="f-card">
+            <div
+              class="f-circle"
+              style="background: linear-gradient(135deg, #e74c3c, #c0392b)"
+            ></div>
+            <div class="f-inner">
+              <div class="f-icon icon-alerts">
+                <i class="fas fa-bell"></i>
+              </div>
+              <div class="f-title">Real-time Alerts</div>
+              <div class="f-description">
+                Get instant notifications when unauthorized vehicles are
+                detected or when specific vehicles of interest enter the
+                premises.
+              </div>
+              <a href="#" class="f-link">
+                <span>Configure alerts</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="f-card">
+            <div
+              class="f-circle"
+              style="background: linear-gradient(135deg, #2ecc71, #27ae60)"
+            ></div>
+            <div class="f-inner">
+              <div class="f-icon icon-analytics">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <div class="f-title">Traffic Analytics</div>
+              <div class="f-description">
+                Comprehensive analytics dashboard to monitor traffic patterns,
+                peak hours, and vehicle dwell times.
+              </div>
+              <a href="#" class="f-link">
+                <span>View analytics</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="f-card">
+            <div
+              class="f-circle"
+              style="background: linear-gradient(135deg, #f39c12, #d35400)"
+            ></div>
+            <div class="f-inner">
+              <div class="f-icon icon-management">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <div class="f-title">Access Management</div>
+              <div class="f-description">
+                Control who has access to your premises by managing a whitelist
+                of authorized vehicles.
+              </div>
+              <a href="#" class="f-link">
+                <span>Manage access</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- System Status & Activity -->
+        <div class="info-cards">
+          <!-- System Status -->
+          <div class="system-status">
+            <div class="status-circle"></div>
+            <div class="status-inner">
+              <div class="status-header">
+                <div class="status-title">System Status</div>
+                <div class="status-refresh">
+                  <i class="fas fa-sync-alt"></i>
+                  <span>Refresh</span>
+                </div>
+              </div>
+              <div class="status-grid">
+                <div class="status-item">
+                  <div class="status-icon operational">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                  <div class="status-details">
+                    <div class="status-name">Camera-M</div>
+                    <div class="status-value">Operational</div>
+                  </div>
+                </div>
+
+                <div class="status-item">
+                  <div class="status-icon operational">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                  <div class="status-details">
+                    <div class="status-name">Camera-2</div>
+                    <div class="status-value">N/A</div>
+                  </div>
+                </div>
+
+                <div class="status-item">
+                  <div class="status-icon warning">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                  <div class="status-details">
+                    <div class="status-name">Camera-3</div>
+                    <div class="status-value">N/A</div>
+                  </div>
+                </div>
+
+                <div class="status-item">
+                  <div class="status-icon operational">
+                    <i class="fas fa-server"></i>
+                  </div>
+                  <div class="status-details">
+                    <div class="status-name">Vehicle records</div>
+                    <div class="status-value">N/A</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="recent-activity">
+            <div class="activity-circle"></div>
+            <div class="activity-inner">
+              <div class="activity-header">
+                <div class="activity-title">Recent Activity</div>
+                <div class="activity-view-all">View All</div>
+              </div>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon alert">
+                    <i class="fas fa-exclamation-circle"></i>
+                  </div>
+                  <div class="activity-content">
+                    <div class="activity-message">
+                      <strong>Unauthorized vehicle detected</strong> - License
+                      plate XYZ 789 at Main Gate
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

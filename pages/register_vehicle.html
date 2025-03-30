@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANPR System - Register Vehicle</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/register_vehicle.css" />
+    <script src="js/register-vehicle.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <i class="fas fa-car-alt"></i>
+            <span>ANPR System</span>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <a href="../index.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="dashboard.html" class="menu-item">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-car"></i>
+            <span>Vehicle Registry</span>
+          </a>
+          <a href="register_vehicle.html" class="menu-item active">
+            <i class="fas fa-plus-circle"></i>
+            <span>Register Vehicle</span>
+          </a>
+          <a href="alerts.html" class="menu-item">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Alerts</span>
+          </a>
+          <!-- <a href="#" class="menu-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <div class="page-title">Register Vehicle</div>
+          <div class="user-profile">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+              <div class="user-name">Admin User</div>
+              <div class="user-role">System Administrator</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Register Vehicle Form -->
+        <div class="register-form-container">
+          <div class="form-circle-top"></div>
+          <div class="form-circle-bottom"></div>
+          <div class="form-inner">
+            <div class="form-title">Vehicle Registration Form</div>
+
+            <form id="vehicleRegistrationForm">
+              <!-- Vehicle Information Section -->
+              <div class="form-section">
+                <div class="section-title">Vehicle Information</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="licensePlate"
+                      >License Plate*</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="licensePlate"
+                      placeholder="Enter license plate number"
+                      required
+                    />
+                    <div class="form-helper">Format: ABC 123 or ABC-123</div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="vehicleType"
+                      >Vehicle Type*</label
+                    >
+                    <select class="form-control" id="vehicleType" required>
+                      <option value="">Select vehicle type</option>
+                      <option value="sedan">Sedan</option>
+                      <option value="suv">SUV</option>
+                      <option value="truck">Truck</option>
+                      <option value="van">Van</option>
+                      <option value="motorcycle">Motorcycle</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="make">Make*</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="make"
+                      placeholder="Vehicle manufacturer"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="model">Model*</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="model"
+                      placeholder="Vehicle model"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="year">Year*</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="year"
+                      placeholder="Manufacturing year"
+                      min="1900"
+                      max="2050"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="color">Color*</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="color"
+                      placeholder="Vehicle color"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Owner Information Section -->
+              <div class="form-section">
+                <div class="section-title">Owner Information</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="ownerName"
+                      >Owner Name*</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ownerName"
+                      placeholder="Full name of the owner"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="ownerID"
+                      >Owner ID/Badge Number*</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ownerID"
+                      placeholder="Enter ID or badge number"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="contactPhone"
+                      >Contact Phone*</label
+                    >
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="contactPhone"
+                      placeholder="Phone number"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="contactEmail"
+                      >Contact Email</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="contactEmail"
+                      placeholder="Email address"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Access & Registration Section -->
+              <div class="form-section">
+                <div class="section-title">Access & Registration Details</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="accessLevel"
+                      >Access Level*</label
+                    >
+                    <select class="form-control" id="accessLevel" required>
+                      <option value="">Select access level</option>
+                      <option value="visitor">Visitor (Temporary)</option>
+                      <option value="employee">Employee</option>
+                      <option value="vendor">Vendor/Contractor</option>
+                      <option value="vip">VIP</option>
+                      <option value="emergency">Emergency Vehicle</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="validUntil"
+                      >Valid Until</label
+                    >
+                    <input type="date" class="form-control" id="validUntil" />
+                    <div class="form-helper">
+                      Leave blank for permanent access
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Access Areas</label>
+                  <div class="checkbox-group">
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="mainGate" checked />
+                      <label for="mainGate">Main Gate</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="employeeParking" />
+                      <label for="employeeParking">Employee Parking</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="visitorParking" />
+                      <label for="visitorParking">Visitor Parking</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="deliveryArea" />
+                      <label for="deliveryArea">Delivery Area</label>
+                    </div>
+                    <div class="checkbox-item">
+                      <input type="checkbox" id="restrictedZone" />
+                      <label for="restrictedZone">Restricted Zone</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="notes">Notes/Comments</label>
+                  <textarea
+                    class="form-control"
+                    id="notes"
+                    rows="3"
+                    placeholder="Additional information about the vehicle or access requirements"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Vehicle Image Upload -->
+              <div class="form-section">
+                <div class="section-title">Vehicle Image</div>
+                <div class="form-row" style="align-items: stretch">
+                  <div class="form-group">
+                    <div class="upload-card">
+                      <i class="fas fa-camera upload-icon"></i>
+                      <div class="upload-text">
+                        Upload a clear photo of the vehicle
+                      </div>
+                      <button type="button" class="upload-btn">
+                        Choose File
+                      </button>
+                      <input type="file" id="vehicleImage" hidden />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="upload-card">
+                      <i class="fas fa-id-card upload-icon"></i>
+                      <div class="upload-text">
+                        Upload a photo of the license plate
+                      </div>
+                      <button type="button" class="upload-btn">
+                        Choose File
+                      </button>
+                      <input type="file" id="plateImage" hidden />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form Actions -->
+              <div class="form-actions">
+                <button type="button" class="btn btn-outline">
+                  <i class="fas fa-times"></i>
+                  <span>Cancel</span>
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i>
+                  <span>Register Vehicle</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Recently Registered Vehicles -->
+        <div class="recent-vehicles">
+          <div class="recent-circle"></div>
+          <div class="recent-inner">
+            <div class="recent-header">
+              <div class="recent-title">Recently Registered Vehicles</div>
+              <div class="recent-view-all">
+                <span>View All</span>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="recent-list">
+              <table class="recent-table">
+                <thead>
+                  <tr>
+                    <th>License Plate</th>
+                    <th>Owner</th>
+                    <th>Vehicle</th>
+                    <th>Access Level</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ABC 123</td>
+                    <td>John Smith</td>
+                    <td>Toyota Camry</td>
+                    <td>Employee</td>
+                    <td>
+                      <span class="status-badge status-active">Active</span>
+                    </td>
+                    <td>
+                      <div class="action-btn edit-btn">
+                        <i class="fas fa-pen"></i>
+                      </div>
+                      <div class="action-btn delete-btn">
+                        <i class="fas fa-trash"></i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>XYZ 789</td>
+                    <td>Sarah Johnson</td>
+                    <td>Honda Accord</td>
+                    <td>Visitor</td>
+                    <td>
+                      <span class="status-badge status-pending">Pending</span>
+                    </td>
+                    <td>
+                      <div class="action-btn edit-btn">
+                        <i class="fas fa-pen"></i>
+                      </div>
+                      <div class="action-btn delete-btn">
+                        <i class="fas fa-trash"></i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>DEF 456</td>
+                    <td>Michael Brown</td>
+                    <td>Ford Explorer</td>
+                    <td>Vendor</td>
+                    <td>
+                      <span class="status-badge status-active">Active</span>
+                    </td>
+                    <td>
+                      <div class="action-btn edit-btn">
+                        <i class="fas fa-pen"></i>
+                      </div>
+                      <div class="action-btn delete-btn"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

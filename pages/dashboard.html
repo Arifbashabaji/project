@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANPR System - Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- No need to include this twice: <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script> -->
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <i class="fas fa-car-alt"></i>
+            <span>ANPR System</span>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <a href="../index.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="dashboard.html" class="menu-item active">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-car"></i>
+            <span>Vehicle Registry</span>
+          </a>
+          <a href="register_vehicle.html" class="menu-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>Register Vehicle</span>
+          </a>
+          <a href="alerts.html" class="menu-item">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Alerts</span>
+          </a>
+          <!-- <a href="#" class="menu-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <div class="page-title">Dashboard</div>
+          <div class="user-profile">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+              <div class="user-name">Admin User</div>
+              <div class="user-role">System Administrator</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics Section -->
+        <div class="metrics-section">
+          <!-- Total Vehicles -->
+          <div class="metric-card">
+            <div
+              class="metric-circle"
+              style="background: linear-gradient(135deg, #4361ee, #3f37c9)"
+            ></div>
+            <div class="metric-inner">
+              <div class="metric-icon icon-vehicles">
+                <i class="fas fa-car"></i>
+              </div>
+              <div class="metric-title">TOTAL VEHICLES TODAY</div>
+              <div class="metric-value"></div>
+              <div class="metric-trend trend-up">
+                <i class="fas fa-arrow-up"></i>
+                <span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alerts -->
+          <div class="metric-card">
+            <div
+              class="metric-circle"
+              style="background: linear-gradient(135deg, #e74c3c, #c0392b)"
+            ></div>
+            <div class="metric-inner">
+              <div class="metric-icon icon-alerts">
+                <i class="fas fa-exclamation-circle"></i>
+              </div>
+              <div class="metric-title">ALERTS TODAY</div>
+              <div class="metric-value"></div>
+              <div class="metric-trend trend-down">
+                <i class="fas fa-arrow-down"></i>
+                <span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Authorized Vehicles -->
+          <div class="metric-card">
+            <div
+              class="metric-circle"
+              style="background: linear-gradient(135deg, #2ecc71, #27ae60)"
+            ></div>
+            <div class="metric-inner">
+              <div class="metric-icon icon-authorized">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="metric-title">AUTHORIZED VEHICLES</div>
+              <div class="metric-value"></div>
+              <div class="metric-trend trend-up">
+                <i class="fas fa-arrow-up"></i>
+                <span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unauthorized Vehicles -->
+          <div class="metric-card">
+            <div
+              class="metric-circle"
+              style="background: linear-gradient(135deg, #f39c12, #d35400)"
+            ></div>
+            <div class="metric-inner">
+              <div class="metric-icon icon-unauthorized">
+                <i class="fas fa-ban"></i>
+              </div>
+              <div class="metric-title">UNAUTHORIZED VEHICLES</div>
+              <div class="metric-value"></div>
+              <div class="metric-trend trend-up">
+                <i class="fas fa-arrow-up"></i>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Traffic Chart and Alert List -->
+        <div class="data-section">
+          <!-- Traffic Chart -->
+          <div class="traffic-chart">
+            <div class="chart-circle"></div>
+            <div class="chart-inner">
+              <div class="section-header">
+                <div class="section-title">Traffic Flow</div>
+                <div class="section-filter">
+                  <div class="filter-btn active">Today</div>
+                  <div class="filter-btn">Week</div>
+                  <div class="filter-btn">Month</div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="trafficChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alert List -->
+          <div class="alert-list">
+            <div class="alert-circle"></div>
+            <div class="alert-inner">
+              <div class="section-header">
+                <div class="section-title">Recent Alerts</div>
+              </div>
+              <div class="alert-items">
+                <!-- Dynamic alerts will be added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Vehicles -->
+        <div class="vehicles-section">
+          <div class="vehicles-circle"></div>
+          <div class="vehicles-inner">
+            <div class="section-header">
+              <div class="section-title">Recent Vehicles</div>
+              <div class="section-filter">
+                <div class="filter-btn active">All</div>
+                <div class="filter-btn">Authorized</div>
+                <div class="filter-btn">Unauthorized</div>
+              </div>
+            </div>
+
+            <table class="vehicles-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>License Plate</th>
+                  <th>Time</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Dynamic vehicle rows will be added here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch and update metrics
+        fetchMetrics();
+
+        // Fetch and update alerts
+        fetchAlerts();
+
+        // Fetch and update recent vehicles
+        fetchVehicles();
+
+        // Fetch traffic data and create chart
+        fetchTrafficData();
+
+        // Add event listeners for filter buttons
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from siblings
+            this.parentNode.querySelectorAll(".filter-btn").forEach((btn) => {
+              btn.classList.remove("active");
+            });
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Get filter
+            const filter = this.textContent;
+            fetchTrafficData(filter);
+          });
+        });
+      });
+
+      function fetchMetrics() {
+        fetch("/api/dashboard/metrics.php") // Corrected URL
+          .then((response) => response.json())
+          .then((data) => {
+            // Update total vehicles
+            document
+              .querySelector(".icon-vehicles")
+              .closest(".metric-card")
+              .querySelector(".metric-value").textContent = data.totalVehicles;
+            document
+              .querySelector(".icon-vehicles")
+              .closest(".metric-card")
+              .querySelector(".metric-trend span").textContent = `${Math.abs(
+              data.totalVehiclesChange
+            )}% ${
+              data.totalVehiclesChange >= 0 ? "from" : "less than"
+            } yesterday`;
+
+            // Update alerts
+            document
+              .querySelector(".icon-alerts")
+              .closest(".metric-card")
+              .querySelector(".metric-value").textContent = data.alerts;
+            document
+              .querySelector(".icon-alerts")
+              .closest(".metric-card")
+              .querySelector(".metric-trend span").textContent = `${Math.abs(
+              data.alertsChange
+            )} ${data.alertsChange >= 0 ? "more than" : "less than"} yesterday`;
+
+            // Update authorized vehicles
+            document
+              .querySelector(".icon-authorized")
+              .closest(".metric-card")
+              .querySelector(".metric-value").textContent =
+              data.authorizedVehicles;
+            document
+              .querySelector(".icon-authorized")
+              .closest(".metric-card")
+              .querySelector(".metric-trend span").textContent = `${Math.abs(
+              data.authorizedVehiclesChange
+            )}% ${
+              data.authorizedVehiclesChange >= 0 ? "from" : "less than"
+            } yesterday`;
+
+            // Update unauthorized vehicles
+            document
+              .querySelector(".icon-unauthorized")
+              .closest(".metric-card")
+              .querySelector(".metric-value").textContent =
+              data.unauthorizedVehicles;
+            document
+              .querySelector(".icon-unauthorized")
+              .closest(".metric-card")
+              .querySelector(".metric-trend span").textContent = `${Math.abs(
+              data.unauthorizedVehiclesChange
+            )} ${
+              data.unauthorizedVehiclesChange >= 0 ? "more than" : "less than"
+            } yesterday`;
+          })
+          .catch((error) => console.error("Error fetching metrics:", error));
+      }
+
+      function fetchAlerts() {
+        fetch("/api/dashboard/alerts.php") // Corrected URL
+          .then((response) => response.json())
+          .then((data) => {
+            const alertContainer = document.querySelector(".alert-items");
+            alertContainer.innerHTML = ""; // Clear existing alerts
+
+            data.forEach((alert) => {
+              const alertItem = document.createElement("div");
+              alertItem.className = "alert-item";
+              alertItem.innerHTML = `
+            <div class="alert-icon">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="alert-content">
+              <div class="alert-message">
+                ${
+                  alert.type === "watchlist"
+                    ? "Watchlist match"
+                    : "Unauthorized vehicle"
+                }
+                <span class="alert-license">${alert.license}</span> at ${
+                alert.location
+              }
+              </div>
+              <div class="alert-time">${alert.timeAgo}</div>
+            </div>
+          `;
+              alertContainer.appendChild(alertItem);
+            });
+          })
+          .catch((error) => console.error("Error fetching alerts:", error));
+      }
+
+      function fetchVehicles() {
+        fetch("/api/dashboard/vehicles.php")
+          .then((response) => response.json())
+          .then((data) => {
+            const tableBody = document.querySelector(".vehicles-table tbody");
+            tableBody.innerHTML = "";
+
+            data.forEach((vehicle) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                <td>
+                  <div class="vehicle-image">
+                    <i class="fas fa-car"></i>
+                  </div>
+                </td>
+                <td>${vehicle.license}</td>
+                <td>${vehicle.time}</td>
+                <td>${vehicle.location}</td>
+                <td>
+                  <span class="vehicle-status status-${vehicle.status}">
+                    ${
+                      vehicle.status.charAt(0).toUpperCase() +
+                      vehicle.status.slice(1)
+                    }
+                  </span>
+                </td>
+                <td class="vehicle-actions">
+                  <a href="#"><i class="fas fa-eye"></i></a>
+                  <a href="#"><i class="fas fa-bell"></i></a>
+                  <a href="#"><i class="fas fa-plus-circle"></i></a>
+                </td>
+              `;
+              tableBody.appendChild(row);
+            });
+          })
+          .catch((error) => console.error("Error fetching vehicles:", error));
+      }
+
+      function fetchTrafficData(filter = "today") {
+        fetch(`/api/dashboard/traffic.php?filter=${filter.toLowerCase()}`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+          })
+          .then((data) => {
+            const chartContainer = document.querySelector(".chart-container");
+            chartContainer.innerHTML = '<canvas id="trafficChart"></canvas>';
+
+            const ctx = document
+              .getElementById("trafficChart")
+              .getContext("2d");
+
+            const labels = getLabelsForFilter(filter);
+
+            if (window.trafficChart instanceof Chart) {
+              window.trafficChart.destroy();
+            }
+
+            window.trafficChart = new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Vehicle Traffic",
+                    data: data,
+                    fill: true,
+                    backgroundColor: "rgba(67, 97, 238, 0.2)",
+                    borderColor: "rgba(67, 97, 238, 1)",
+                    tension: 0.4,
+                    pointBackgroundColor: "rgba(67, 97, 238, 1)",
+                    pointRadius: 3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: false,
+                  },
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    grid: {
+                      color: "rgba(0, 0, 0, 0.05)",
+                    },
+                  },
+                  x: {
+                    grid: {
+                      color: "rgba(0, 0, 0, 0.05)",
+                    },
+                  },
+                },
+              },
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching traffic data:", error);
+            const chartContainer = document.querySelector(".chart-container");
+            chartContainer.innerHTML = `
+              <div class="chart-placeholder">
+                <i class="fas fa-chart-line fa-3x"></i>
+                <p>Unable to load traffic data</p>
+              </div>`;
+          });
+      }
+
+      function getLabelsForFilter(filter) {
+        switch (filter.toLowerCase()) {
+          case "week":
+            return [...Array(7)].map((_, i) =>
+              new Date(Date.now() - (6 - i) * 86400000).toLocaleDateString()
+            );
+          case "month":
+            return [...Array(30)].map((_, i) =>
+              new Date(Date.now() - (29 - i) * 86400000).toLocaleDateString()
+            );
+          default: // 'today'
+            return [...Array(24)].map(
+              (_, i) => `${i.toString().padStart(2, "0")}:00`
+            );
+        }
+      }
+      // Refresh data every 5 minutes
+      //   setInterval(() => {  //Removed the set interval
+      //     fetchMetrics();
+      //     fetchAlerts();
+      //     fetchVehicles();
+      //     fetchTrafficData();
+      //   }, 300000);
+    </script>
+  </body>
+</html>
